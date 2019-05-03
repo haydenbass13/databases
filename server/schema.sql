@@ -2,28 +2,44 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE rooms (
-  id INTEGER NOT NULL AUTO_INCREMENT,
-  room_name VARCHAR(20) NOT NULL,
-  PRIMARY KEY (id)
-);
-
-
 CREATE TABLE users (
   id INTEGER NOT NULL AUTO_INCREMENT,
   user_name VARCHAR(20) NOT NULL,
   PRIMARY KEY (id)
 );
 
-CREATE TABLE Messages (
+CREATE TABLE messages (
   id INTEGER NOT NULL AUTO_INCREMENT,
   msg_body VARCHAR(140) NOT NULL,
   user_id INTEGER(5) NOT NULL,
-  room_id INTEGER(5) NOT NULL,
+  room_name VARCHAR(20) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (user_id) REFERENCES users (id),
-  FOREIGN KEY (room_id) REFERENCES rooms (id)
+  FOREIGN KEY (user_id) REFERENCES users (id));
+
+/*
+CREATE DATABASE chat;
+
+USE chat;
+
+CREATE TABLE messages (
+
+
+  id int NOT NULL AUTO_INCREMENT,
+  userid int NOT NULL,
+  text varchar(200)  NOT NULL,
+  roomname varchar(20),
+  PRIMARY KEY (ID)
 );
+
+
+
+
+CREATE TABLE users (
+  id        int    NOT NULL AUTO_INCREMENT,
+  username  varchar(40)   NOT NULL,
+  PRIMARY KEY (ID)
+);
+*/
 
 -- ---
 -- Table Properties
