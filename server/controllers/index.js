@@ -10,7 +10,7 @@ module.exports = {
         res.json(results)
       })
     },
-    post: function (req, res) {
+    post: function (params, callback) {
       var params = [req.body.msg_body, req.body.user_name, req.body.room_name];
       models.messages.post(params, (err, results) => {
         res.sendStatus(201)
